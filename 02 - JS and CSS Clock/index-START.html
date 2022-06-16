@@ -62,9 +62,9 @@
       background: black;
       position: absolute;
       top: 50%;
+      border-radius: 6px;
       transform-origin: 100%;
       transform: rotate(90deg);
-      transition: all 0.5s;
       transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
     }
 
@@ -72,7 +72,8 @@
 
   <script type="text/javascript">
 
-    function clock() {
+    // It  calculates clock hand positions
+    function calculateClockHandPositions() {
       let getDate = new Date();
       let getHour = getDate.getHours();
       let getMinute = getDate.getMinutes();
@@ -91,9 +92,12 @@
       const secondPosition = ((getSecond / 60) * 360) + 90;
       secondHand.style.transform = `rotate(${ secondPosition }deg)`;
       
+      console.log(secondPosition);
     }
 
-    setInterval(clock, 1000);
+    setInterval(calculateClockHandPositions, 1000);
+    
+    calculateClockHandPositions();
     
   </script>
 </body>
